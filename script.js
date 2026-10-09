@@ -54,9 +54,9 @@ fetch(ENDPOINT)
         });
 
         // 6) Resumen con bolitas
-        document.querySelector("#puntos_americanos").innerHTML = bolitas(cuenta_america);
-        document.querySelector("#puntos_europeos").innerHTML = bolitas(cuenta_europa);
-        document.querySelector("#puntos_otros").innerHTML = bolitas(cuenta_otros);
+       document.querySelector("#puntos_americanos").innerHTML = bolitas(cuenta_america, "🔴");
+document.querySelector("#puntos_europeos").innerHTML = bolitas(cuenta_europa, "🔵");
+document.querySelector("#puntos_otros").innerHTML = bolitas(cuenta_otros, "🟢");
     })
     // 7) Si algo falla, lo muestra en la consola (F12)
     .catch((error) => {
@@ -64,10 +64,10 @@ fetch(ENDPOINT)
     });
 
 // Muestra x bolitas. Por ejemplo: bolitas(3) => " ● ● ● "
-function bolitas(x) {
+function bolitas(x, simbolo = "●") {
     var visual = "";
     for (let i = 0; i < x; i++) {
-        visual += " ● ";
+       visual += '<span class="cuadrado"></span>';
     }
     return "<span>" + visual + "</span>";
 }
